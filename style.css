@@ -1,0 +1,147 @@
+:root {
+    --primary-moss: #6b8e23;
+    --soft-rose: #ffb6c1;
+    --deep-rose: #d81b60;
+    --matcha-bg: #fdf7f8;
+    --rose-accent: #ff8fa3;
+    --deep-text: #362d2e;
+    --muted-text: #9a8b8d;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(to bottom, 
+        #f1f5e9 0%, 
+        #fffafa 50%, 
+        #fff0f2 100%);
+    color: var(--deep-text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-attachment: fixed;
+}
+
+.faded-bg-text {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 11rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--deep-text);
+    opacity: 0.12;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    position: absolute;
+    top: -2.5rem;
+    left: -1rem;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.gradient-main-text {
+    font-family: 'Mrs Saint Delafield', cursive;
+    font-size: 5.5rem;
+    font-weight: 400;
+    color: var(--primary-moss);
+    position: relative;
+    z-index: 20;
+    line-height: 1;
+    display: inline-block;
+    padding-bottom: 0.1em;
+}
+
+.year-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    letter-spacing: 0.8em;
+    color: var(--muted-text);
+    text-transform: uppercase;
+    position: relative;
+    z-index: 30;
+    margin-top: -1rem;
+}
+
+.aesthetic-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(54, 45, 46, 0.04);
+}
+
+.day-node {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #fff;
+    border: 1px solid rgba(255, 143, 163, 0.2);
+}
+
+.day-node.active {
+    background: linear-gradient(135deg, var(--rose-accent) 0%, var(--soft-rose) 100%) !important;
+    box-shadow: 0 4px 10px rgba(255, 143, 163, 0.4);
+    transform: scale(1.2);
+    border-color: var(--rose-accent);
+}
+
+.date-label {
+    font-size: 8px;
+    font-weight: 800;
+    color: var(--rose-accent);
+    opacity: 0.6;
+    margin-bottom: 4px;
+}
+
+.custom-scroll::-webkit-scrollbar { width: 4px; height: 4px; }
+.custom-scroll::-webkit-scrollbar-thumb { background: var(--soft-rose); border-radius: 10px; }
+
+.habit-row {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(255, 143, 163, 0.1);
+}
+
+.editable-name {
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.editable-name:hover { color: var(--rose-accent); }
+
+.editable-name::after {
+    content: ' ✎';
+    font-size: 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.editable-name:hover::after { opacity: 0.5; }
+
+.stat-value {
+    font-family: 'Bodoni Moda', serif;
+    color: var(--rose-accent);
+}
+
+#customModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(54, 45, 46, 0.15);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--rose-accent) 0%, #ffc1cc 100%);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+    box-shadow: 0 5px 15px rgba(255, 143, 163, 0.3);
+}

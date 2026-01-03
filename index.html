@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-6 md:p-12">
+
+    <div id="customModal" onclick="closeModal(event)">
+        <div class="aesthetic-card p-10 max-w-md w-full mx-4 shadow-2xl" onclick="event.stopPropagation()">
+            <h3 class="text-xl italic text-[#362d2e] mb-6" style="font-family: 'Cormorant Garamond', serif;">Rename Task</h3>
+            <input type="text" id="modalInput" class="w-full bg-white border border-pink-100 rounded-xl px-4 py-3 outline-none text-base mb-6 focus:ring-2 ring-pink-50 transition">
+            <div class="flex gap-4">
+                <button onclick="closeModal()" class="flex-1 py-3 text-[10px] font-bold uppercase tracking-widest text-[#9a8b8d] border border-gray-100 rounded-xl hover:bg-gray-50 transition">Cancel</button>
+                <button onclick="submitRename()" class="flex-1 py-3 text-[10px] font-bold uppercase tracking-widest btn-primary text-white rounded-xl shadow-lg">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-[1500px] mx-auto">
+        <header class="mb-16 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="text-center lg:text-left relative min-w-[350px]">
+                    <span class="faded-bg-text">JAN</span>
+                    <span class="gradient-main-text">January</span>
+                    <p class="year-text">Twenty Twenty-Six</p>
+                    <p class="text-[10px] mt-4 font-bold text-[#9a8b8d] uppercase tracking-widest">Balanced Task Journal</p>
+                </div>
+
+                <div class="aesthetic-card flex-1 w-full p-8 flex flex-col md:flex-row items-center gap-10">
+                    <div class="relative w-40 h-40 flex-shrink-0">
+                        <canvas id="mainProgressChart"></canvas>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span id="globalStat" class="text-3xl font-light text-[#362d2e] stat-value">0%</span>
+                            <span class="text-[8px] uppercase tracking-widest text-[#9a8b8d] font-bold">Progress</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 w-full h-40">
+                        <p class="text-[10px] font-bold text-[#9a8b8d] uppercase tracking-widest mb-2">Completion Wave</p>
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+
+                    <div class="flex flex-col gap-4 border-l border-pink-50 pl-10 hidden md:flex">
+                        <div>
+                            <p class="text-[10px] font-bold text-[#9a8b8d] uppercase tracking-widest">Avg Sleep</p>
+                            <p id="avgSleepHeader" class="text-4xl font-light text-[#362d2e] stat-value">0h</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-[#9a8b8d] uppercase tracking-widest">Flow State</p>
+                            <p id="successProb" class="text-4xl font-black text-[#362d2e] italic" style="font-family: 'Cormorant Garamond', serif;">0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            <div class="lg:col-span-9">
+                <div class="aesthetic-card p-10 h-full">
+                    <div class="flex justify-between items-end mb-10">
+                        <h2 class="text-2xl italic text-[#362d2e]" style="font-family: 'Cormorant Garamond', serif;">Monthly Tasks</h2>
+                        <span class="text-[10px] text-[#9a8b8d] uppercase tracking-[0.3em]">Click names to customize</span>
+                    </div>
+                    <div id="tasksList" class="space-y-2 max-h-[800px] overflow-y-auto pr-6 custom-scroll"></div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3">
+                <div class="aesthetic-card p-8 h-full flex flex-col">
+                    <h2 class="text-xl italic text-[#362d2e] mb-6" style="font-family: 'Cormorant Garamond', serif;">Sleep Sync</h2>
+                    <div class="flex gap-2 mb-8">
+                        <input type="number" id="sleepInput" placeholder="Hrs" step="0.5" class="w-full bg-white border border-pink-50 rounded-xl px-4 py-2 outline-none text-sm focus:border-pink-300 transition">
+                        <button onclick="logSleep()" class="btn-primary text-white px-4 rounded-xl text-xs font-bold uppercase">Log</button>
+                    </div>
+                    <div class="flex-1 min-h-[300px] relative">
+                        <canvas id="sleepChart"></canvas>
+                    </div>
+                    <button onclick="handleReset()" class="mt-8 text-[9px] text-[#9a8b8d] uppercase tracking-widest hover:text-pink-400 transition text-center">Reset Workspace</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Your JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
