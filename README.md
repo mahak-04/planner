@@ -6,7 +6,7 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 
 ---
 
-## ✨ Features
+## Features
 
 - Monthly task grid (31 days)
 - Click-to-complete daily habits
@@ -18,7 +18,7 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - HTML
 - CSS (Tailwind + custom styles)
@@ -27,7 +27,7 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 
 ---
 
-## 🚀 How to Use
+## How to Use
 
 1. Open the app in a browser  
 2. Click circles to mark tasks as complete  
@@ -39,13 +39,13 @@ Your data is saved in the browser, so it persists between visits.
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 This project is intended to be hosted using **GitHub Pages** so it can be accessed like a web app.
 
 ---
 
-## 🧠 Notes
+## Notes
 
 - Best viewed on desktop or tablet
 - Data is stored locally in the browser
@@ -53,6 +53,6 @@ This project is intended to be hosted using **GitHub Pages** so it can be access
 
 ---
 
-## 📌 Author
+## Author
 
 Mahak
