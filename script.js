@@ -1,16 +1,16 @@
 const STORAGE_KEY = 'task_tracker_v1_rose';
 
 const defaultTasks = [
-    { name: "First Light (Sunlight)", data: new Array(31).fill(false) },
-    { name: "Water Intake", data: new Array(31).fill(false) },
-    { name: "Deep Work Session", data: new Array(31).fill(false) },
-    { name: "Daily Exercise", data: new Array(31).fill(false) },
-    { name: "Reading", data: new Array(31).fill(false) },
-    { name: "No Screen (1hr pre-sleep)", data: new Array(31).fill(false) },
-    { name: "Meditation", data: new Array(31).fill(false) },
-    { name: "Personal Hygiene", data: new Array(31).fill(false) },
-    { name: "Balanced Meals", data: new Array(31).fill(false) },
-    { name: "Daily Planning", data: new Array(31).fill(false) }
+    { name: "First Light (Sunlight)", data: new Array(28).fill(false) },
+    { name: "Water Intake", data: new Array(28).fill(false) },
+    { name: "Deep Work Session", data: new Array(28).fill(false) },
+    { name: "Daily Exercise", data: new Array(28).fill(false) },
+    { name: "Reading", data: new Array(28).fill(false) },
+    { name: "No Screen (1hr pre-sleep)", data: new Array(28).fill(false) },
+    { name: "Meditation", data: new Array(28).fill(false) },
+    { name: "Personal Hygiene", data: new Array(28).fill(false) },
+    { name: "Balanced Meals", data: new Array(28).fill(false) },
+    { name: "Daily Planning", data: new Array(28).fill(false) }
 ];
 
 let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
@@ -99,7 +99,7 @@ function renderTasks() {
 }
 
 function updateStats() {
-    const totalCells = state.rituals.length * 31;
+    const totalCells = state.rituals.length * 28;
     const completedCells = state.rituals.reduce((a, r) => a + r.data.filter(Boolean).length, 0);
     const pct = Math.round((completedCells / totalCells) * 100) || 0;
 
@@ -111,7 +111,7 @@ function updateStats() {
         progressChart.update();
     }
 
-    const dailyStats = new Array(31).fill(0);
+    const dailyStats = new Array(28).fill(0);
     state.rituals.forEach(r => r.data.forEach((d, i) => d && dailyStats[i]++));
     const ritualCount = state.rituals.length;
     const performanceTrend = dailyStats.map(c => (c / ritualCount) * 100);
@@ -149,7 +149,7 @@ function initCharts() {
 
     performanceChart = new Chart(document.getElementById('performanceChart'), {
         type: 'bar',
-        data: { labels: Array.from({ length: 31 }, (_, i) => i + 1), datasets: [{ data: [], backgroundColor: '#ff8fa3' }] },
+        data: { labels: Array.from({ length: 28 }, (_, i) => i + 1), datasets: [{ data: [], backgroundColor: '#ff8fa3' }] },
         options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100 } } }
     });
 }
