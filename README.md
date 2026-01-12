@@ -8,13 +8,13 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 
 ## Features
 
-- Monthly task grid (31 days)
+- Monthly task grid 
 - Click-to-complete daily habits
 - Editable task names
 - Visual progress charts
 - Sleep tracking
 - Data saved automatically using browser localStorage
-- Fully client-side (no login, no backend)
+- Fully client-side (no login)
 
 ---
 
