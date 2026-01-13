@@ -21,7 +21,7 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 ## Built With
 
 - HTML
-- CSS (Tailwind + custom styles)
+- CSS
 - JavaScript
 - Chart.js
 
