@@ -14,7 +14,7 @@ This planner is designed for daily use to track habits, tasks, sleep, and overal
 - Visual progress charts
 - Sleep tracking
 - Data saved automatically using browser localStorage
-- Fully client-side (no login)
+- Fully client-side 
 
 ---
 
