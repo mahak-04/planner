@@ -3,8 +3,8 @@
     --soft-rose: #ffb6c1;
     --deep-rose: #d81b60;
     --matcha-bg: #fdf7f8;
-    --rose-accent: #ff8fa3;
-    --deep-text: #362d2e;
+    --rose-accent: #D4A5A5;
+    --deep-text: #4A3E3F;
     --muted-text: #9a8b8d;
 }
 
@@ -13,7 +13,7 @@ body {
     background: linear-gradient(to bottom, 
         #f1f5e9 0%, 
         #fffafa 50%, 
-        #fff0f2 100%);
+        #FDF5F5 100%);
     color: var(--deep-text);
     min-height: 100vh;
     overflow-x: hidden;
