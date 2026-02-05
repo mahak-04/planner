@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'task_tracker_v1_rose';
+const STORAGE_KEY = 'task_tracker_feb_2026';
 
 const defaultTasks = [
     { name: "First Light (Sunlight)", data: new Array(28).fill(false) },
@@ -137,19 +137,19 @@ function updateStats() {
 function initCharts() {
     progressChart = new Chart(document.getElementById('mainProgressChart'), {
         type: 'doughnut',
-        data: { datasets: [{ data: [0, 100], backgroundColor: ['#ff8fa3', '#fff0f2'], borderWidth: 0 }] },
+        data: { datasets: [{ data: [0, 100], backgroundColor: ['#D4A5A5', '#F3E5F5'], borderWidth: 0 }] },
         options: { cutout: '85%', plugins: { tooltip: { enabled: false } } }
     });
 
     sleepChart = new Chart(document.getElementById('sleepChart'), {
         type: 'line',
-        data: { labels: [], datasets: [{ data: [], borderColor: '#ff8fa3', backgroundColor: 'rgba(255,143,163,0.08)', fill: true, tension: 0.4 }] },
+        data: { labels: [], datasets: [{ data: [], borderColor: '#D4A5A5', backgroundColor: 'rgba(255,143,163,0.08)', fill: true, tension: 0.4 }] },
         options: { maintainAspectRatio: false, plugins: { legend: { display: false } } }
     });
 
     performanceChart = new Chart(document.getElementById('performanceChart'), {
         type: 'bar',
-        data: { labels: Array.from({ length: 28 }, (_, i) => i + 1), datasets: [{ data: [], backgroundColor: '#ff8fa3' }] },
+        data: { labels: Array.from({ length: 28 }, (_, i) => i + 1), datasets: [{ data: [], backgroundColor: '#D4A5A5' }] },
         options: { maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 100 } } }
     });
 }
